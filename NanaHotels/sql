@@ -1,0 +1,58 @@
+use Nanashotel;
+
+ CREATE TABLE employees(
+  employee_id INT NOT NULL AUTO_INCREMENT,
+  fname VARCHAR(75) NOT NULL,
+  lname VARCHAR(75) NOT NULL,
+  gender VARCHAR(45) NOT NULL,
+  department VARCHAR(45)NOT NULL,
+  position VARCHAR(45) NOT NULL,
+  salary DOUBLE NOT NULL,
+  bdate Date NOT NULL,
+  joinedDate Date NOT NULL,
+  username VARCHAR(45),
+  emppass VARCHAR(45),
+  PRIMARY KEY (employee_id));
+  
+INSERT INTO employees (`fname`, `lname`,`gender`, `department`, `position`, `salary`, bdate, joinedDate, `username`, `emppass` ) 
+VALUES ('John','Doe', 'Male', 'Admin', 'CEO', 6500.00, 30/02/1990, 1/06/2012, 'johndoe','johndoe')
+,('Richard' ,'Castle', 'Male', 'Investigation', 'Writer', 2600.00, 20/02/1994,1/06/2012,'','')
+,('Sheldan', 'Cooper', 'Male', 'Lab', 'Scientist', 1300.00, 30/08/1988, 1/06/2012,'','')
+,('Penny','Sylvian', 'Female', 'Kitchen', 'Chef', 1200.00, 3/11/1989, 1/06/2012,'johndoe','johndoe');
+
+DELETE FROM employees WHERE fname='Penny';
+
+INSERT INTO employees (`fname`, `lname`,`gender`, `department`, `position`, `salary`, bdate, joinedDate, `username`, `emppass` ) 
+VALUES ('Jennifer','Strongs', 'Female', 'Kitchen', 'Chef', 1200.00, 3/11/1994, 1/06/2014,'admin','strongs');
+
+drop table employees
+
+
+select username, emppass from employees where username = 'pennys'
+
+
+
+CREATE TABLE rooms(
+	roomNo INT NOT NULL AUTO_INCREMENT,
+	roomType VARCHAR(20),
+	bedNo INT,
+	roomRate DOUBLE,
+	roomLocation VARCHAR(20),
+	PRIMARY KEY (roomNo));
+	
+CREATE TABLE customer(
+	custID INT NOT NULL AUTO_INCREMENT,
+	title VARCHAR(75) NOT NULL,
+	fname VARCHAR(75) NOT NULL,
+  	lname VARCHAR(75) NOT NULL,
+  	gender VARCHAR(45),
+  	address VARCHAR(75),
+  	state VARCHAR(75),
+  	country VARCHAR(75),
+  	phone VARCHAR(75),
+  	checkin DATE,
+  	checkout DATE,
+  	roomNo INT,
+	PRIMARY KEY (custID),
+	FOREIGN KEY (roomNo) REFERENCES rooms(roomNo)
+	);
