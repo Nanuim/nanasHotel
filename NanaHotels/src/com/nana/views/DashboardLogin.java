@@ -239,7 +239,7 @@ public class DashboardLogin {
 					messageBox.setMessage("Welcome: " + selectedUsername);
 					messageBox.open();
 					shell.dispose();
-					new AdminMenu();
+					new AdminMenu(selectedUsername);
 				} else if (!selectedUsername.equals("admin") && !(selectedPass.equals(dbPass))) {
 					MessageBox messageBox = new MessageBox(shell, SWT.OK | SWT.ICON_WARNING | SWT.CANCEL);
 					messageBox.setMessage("Wrong admin pass... please try again");

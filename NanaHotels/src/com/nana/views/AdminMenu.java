@@ -16,7 +16,7 @@ public class AdminMenu {
 	Shell shell = new Shell(display, SWT.NONE);
 	
 
-	public AdminMenu() {
+	public AdminMenu(String userName) {
 		shell.setText("Hotel Menu");
 		shell.setBackgroundImage(SWTResourceManager.getImage(
 				"C:\\Users\\NIUElechi\\eclipse-workspace\\jee_innovatives\\NanaHotels\\resources\\img\\menu.JPG"));
@@ -25,7 +25,7 @@ public class AdminMenu {
 		shell.setText("Nana International Hotel");
 		shell.setLayout(new FormLayout());
 
-		createBarMenu(shell);
+		createBarMenu(shell, userName);
 
 		shell.open();
 		shell.layout();
@@ -37,7 +37,7 @@ public class AdminMenu {
 
 	}
 
-	private void createBarMenu(Shell shell) {
+	private void createBarMenu(Shell shell, String userName) {
 		// Create the bar menu
 		Menu menu = new Menu(shell, SWT.BAR);
 
@@ -71,7 +71,7 @@ public class AdminMenu {
 		availItem.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				new FreeRooms("Available");
+				new FreeRooms("Available", userName);
 			}
 		});
 		availItem.setText("Available Rooms");
@@ -80,7 +80,7 @@ public class AdminMenu {
 		booksItem.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				new FreeRooms("Occupied");
+				new FreeRooms("Occupied", userName);
 			}
 		});
 		booksItem.setText("Booked Rooms");
@@ -115,7 +115,7 @@ public class AdminMenu {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try {
-					new StaffTable();
+					new StaffTable(userName);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -128,7 +128,7 @@ public class AdminMenu {
 				empItem.addSelectionListener(new SelectionAdapter() {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
-						new HotelStaff();
+						new HotelStaff(userName);
 					}
 				});
 
@@ -161,7 +161,7 @@ public class AdminMenu {
 		roomsItem.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				new EditRooms();
+				new EditRooms(userName);
 			}
 		});
 
@@ -169,9 +169,9 @@ public class AdminMenu {
 		shell.setMenuBar(menu);
 	}
 	
-	public static void main(String[] args) {
-
-		new AdminMenu();
-
-	}
+//	public static void main(String[] args) {
+//
+//		new AdminMenu("Nana");
+//
+//	}
 }

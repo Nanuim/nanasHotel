@@ -70,7 +70,7 @@ public class StaffTable {
 	 * @wbp.parser.entryPoint
 	 */
 
-	public StaffTable() throws Throwable {
+	public StaffTable(String userName) throws Throwable {
 		Display display = Display.getDefault();
 		Shell shell = new Shell(display, SWT.NONE);
 		
@@ -85,7 +85,7 @@ public class StaffTable {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				shell.dispose();
-				new HotelStaff();
+				new HotelStaff(userName);
 			}
 		});
 		btnNewButton.setFont(SWTResourceManager.getFont("Tw Cen MT", 16, SWT.BOLD));

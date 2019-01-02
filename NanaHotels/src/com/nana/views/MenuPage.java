@@ -20,7 +20,7 @@ public class MenuPage {
 	Display display = Display.getDefault();
 	Shell shell = new Shell(display, SWT.NONE);
 	
-	public MenuPage(String userName) {
+	public MenuPage(String myUser) {
 		shell.setText("Hotel Menu");
 		shell.setBackgroundImage(SWTResourceManager.getImage(
 				"C:\\Users\\NIUElechi\\eclipse-workspace\\jee_innovatives\\NanaHotels\\resources\\img\\menu.JPG"));
@@ -29,7 +29,7 @@ public class MenuPage {
 		shell.setText("Nana International Hotel");
 		shell.setLayout(new FormLayout());
 
-		createBarMenu(shell);
+		createBarMenu(shell, myUser);
 		
 		Label lblNewLabel = new Label(shell, SWT.NONE);
 		lblNewLabel.setFont(SWTResourceManager.getFont("Script MT Bold", 20, SWT.NORMAL));
@@ -39,7 +39,7 @@ public class MenuPage {
 		fd_lblNewLabel.top = new FormAttachment(0, 24);
 		fd_lblNewLabel.left = new FormAttachment(0, 10);
 		lblNewLabel.setLayoutData(fd_lblNewLabel);
-		lblNewLabel.setText("Welcome " + userName);
+		lblNewLabel.setText("Welcome " + myUser);
 
 		shell.open();
 		shell.layout();
@@ -57,7 +57,7 @@ public class MenuPage {
 //
 //	}
 
-	private void createBarMenu(Shell shell) {
+	private void createBarMenu(Shell shell, String myUser) {
 		// Create the bar menu
 		Menu menu = new Menu(shell, SWT.BAR);
 
@@ -85,7 +85,7 @@ public class MenuPage {
 		availItem.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				new FreeRooms("Available");
+				new FreeRooms("Available", myUser);
 			}
 		});
 		availItem.setText("Available Rooms");
@@ -94,7 +94,7 @@ public class MenuPage {
 		booksItem.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				new FreeRooms("Occupied");
+				new FreeRooms("Occupied", myUser);
 			}
 		});
 		booksItem.setText("Booked Rooms");

@@ -83,7 +83,7 @@ public class HotelStaff {
 	 * @param style
 	 * @wbp.parser.entryPoint
 	 */
-	public HotelStaff() {
+	public HotelStaff(String userName) {
 		super();
 		final Display display = Display.getDefault();
 		shlUserManagement = new Shell();
@@ -246,7 +246,7 @@ public class HotelStaff {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				shlUserManagement.dispose();
-				new AdminMenu();
+				new AdminMenu(userName);
 			}
 		});
 
@@ -257,7 +257,7 @@ public class HotelStaff {
 			public void widgetSelected(SelectionEvent e) {
 				try {
 					shlUserManagement.dispose();
-					new StaffTable();
+					new StaffTable(userName);
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -591,9 +591,9 @@ public class HotelStaff {
 		passText.setText("");
 	}
 
-	public static void main(String[] args) {
-
-		new HotelStaff();
-
-	}
+//	public static void main(String[] args) {
+//
+//		new HotelStaff("Nana");
+//
+//	}
 }

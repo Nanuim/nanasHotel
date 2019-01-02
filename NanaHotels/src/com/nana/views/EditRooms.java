@@ -41,7 +41,7 @@ public class EditRooms {
 	 * 
 	 * @param args
 	 */
-	public EditRooms() {
+	public EditRooms(String userName) {
 
 		shlUpdateRoomInfo.setSize(450, 300);
 		shlUpdateRoomInfo.setText("Update Room Info");
@@ -79,7 +79,7 @@ public class EditRooms {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				shlUpdateRoomInfo.dispose();
-				new FreeRooms("All");
+				new FreeRooms("All", userName);
 			}
 		});
 		btnViewAllRooms.setText("View all Rooms");
@@ -94,7 +94,7 @@ public class EditRooms {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				shlUpdateRoomInfo.dispose();
-				new FreeRooms("Available");
+				new FreeRooms("Available", userName);
 			}
 		});
 
@@ -106,7 +106,7 @@ public class EditRooms {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				shlUpdateRoomInfo.dispose();
-				new FreeRooms("Occupied");
+				new FreeRooms("Occupied", userName);
 			}
 		});
 
@@ -173,7 +173,7 @@ public class EditRooms {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				shlUpdateRoomInfo.dispose();
-				new AdminMenu();
+				new AdminMenu(userName);
 			}
 		});
 		btnBackToAdmin.setText("Back to Admin Menu");

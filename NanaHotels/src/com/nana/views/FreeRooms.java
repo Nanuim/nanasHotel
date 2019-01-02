@@ -44,7 +44,7 @@ public class FreeRooms {
 	 * @throws Throwable 
 	 * @wbp.parser.entryPoint
 	 */
-	public FreeRooms(String s) {
+	public FreeRooms(String s, String userName) {
 		Display display = Display.getDefault();
 		Shell shell = new Shell(display, SWT.NONE);
 		
@@ -62,7 +62,7 @@ public class FreeRooms {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				shell.dispose();
-				new EditRooms();
+				new EditRooms(userName);
 			}
 		});
 		btnNewButton.setFont(SWTResourceManager.getFont("Tw Cen MT", 16, SWT.BOLD));
